@@ -24,10 +24,36 @@
 
 .card {
     height: 120px;
-    width: 16%;
-    margin: 30px calc((100% - (16% * 4)) / 8);
+    width: 15%;
+    margin: 30px calc((100% - (15% * 5)) / 10);
     display: flex;
-    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     /* debug */
     background-color: #f00;
+}
+
+.card .fas {
+    font-size: 45px;
+}
+
+.card h4 {
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.orange {
+    color: orange;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
 }
