@@ -1,0 +1,33 @@
+/* STILE BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* STILE HEADER */
+#header {
+    height: 120px;
+    width: 100%;
+    /* debug */
+    background-color: #00f;
+}
+
+/* STILE MAIN */
+#main-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* debug */
+    background-color: #0f0;
+}
+
+.card {
+    height: 120px;
+    width: 16%;
+    margin: 30px calc((100% - (16% * 4)) / 8);
+    display: flex;
+    
+    /* debug */
+    background-color: #f00;
+}
