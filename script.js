@@ -1,3 +1,4 @@
+// VARIABILI DI RICHIAMO ELEMENT HTML
 const myContainer = document.getElementById('main-container');
 const mySelect = document.getElementById('filter-type');
 let divEl;
@@ -5,45 +6,23 @@ let iEl;
 let h4El;
 let h4UpperText
 
-// CICLO PER RIPETERE LA FUNZIONE DI CREAZIONE HTML
-for (let i = 0; i < myArr.length; i ++) {
-    createCardFunc(`${myArr[i].family} ${myArr[i].prefix}${myArr[i].name}`, myArr[i].name, myArr[i].color);
-};
-
-// CREO ARREY DIFFERENZIATI A SECONDA DELLA TIPOLOGIA DELL OBJECT
-const animalsArr = myArr.filter(obj => obj.type == 'animal');
-console.log(animalsArr);
-
-const vegetablesArr = myArr.filter(obj => obj.type == 'vegetable');
-console.log(vegetablesArr);
-
-const usersArr = myArr.filter(obj => obj.type == 'user');
-console.log(usersArr);
+// RICHIAMO FUNZIONE PER CREARE HTML
+createSwitchCardFunc (myArr);
 
 // EVENTO PER GESTIRE IL SELECT
 mySelect.addEventListener ('change', function () {
     if (this.value == 'animals') {
-        myContainer.innerHTML = "";
-        for (let i = 0; i < animalsArr.length; i ++) {
-            createCardFunc(`${animalsArr[i].family} ${animalsArr[i].prefix}${animalsArr[i].name}`, animalsArr[i].name, animalsArr[i].color);
-        };
+        const animalsArr = myArr.filter(obj => obj.type == 'animal');
+        createSwitchCardFunc (animalsArr);
     } else if (this.value == 'vegetables') {
-        myContainer.innerHTML = "";
-        for (let i = 0; i < vegetablesArr.length; i ++) {
-            createCardFunc(`${vegetablesArr[i].family} ${vegetablesArr[i].prefix}${vegetablesArr[i].name}`, vegetablesArr[i].name, vegetablesArr[i].color);
-        };
+        const vegetablesArr = myArr.filter(obj => obj.type == 'vegetable');
+        createSwitchCardFunc (vegetablesArr);
     } else if (this.value == 'users') {
-        myContainer.innerHTML = "";
-        for (let i = 0; i < usersArr.length; i ++) {
-            createCardFunc(`${usersArr[i].family} ${usersArr[i].prefix}${usersArr[i].name}`, usersArr[i].name, usersArr[i].color);
-        };
+        const usersArr = myArr.filter(obj => obj.type == 'user');
+        createSwitchCardFunc (usersArr);
     } else {
-        myContainer.innerHTML = "";
-        for (let i = 0; i < myArr.length; i ++) {
-            createCardFunc(`${myArr[i].family} ${myArr[i].prefix}${myArr[i].name}`, myArr[i].name, myArr[i].color);
-        };
+        createSwitchCardFunc (myArr);
     };
-
 });
 
 // FUNZIONE PER CREARE LA STRUTTURA HTML
@@ -66,4 +45,12 @@ function createCardFunc (iconClass, h4Text, iconColorClass) {
     divEl.append(h4El);
 
     return;
+};
+
+// FUNZIONE PER INSERIRE LE CARD
+function createSwitchCardFunc (arr) {
+    myContainer.innerHTML = "";
+    arr.forEach(element => {
+        createCardFunc(`${element.family} ${element.prefix}${element.name}`, element.name, element.color);
+    });
 };
